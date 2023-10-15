@@ -1,0 +1,150 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model atoll {
+  id                         Int      @id @default(autoincrement())
+  code                       String   @unique
+  name                       String
+  alt_name                   String
+  island_island_atollToatoll island[] @relation("island_atollToatoll")
+}
+
+model cleanupevent {
+  id               Int                @id @default(autoincrement())
+  islandid         Int
+  locationid       Int
+  organisationid   Int
+  startdate        DateTime
+  userid           Int
+  island           island             @relation(fields: [islandid], references: [id])
+  location         location           @relation(fields: [locationid], references: [id])
+  organisation     organisation       @relation(fields: [organisationid], references: [id])
+  user             user               @relation(fields: [userid], references: [id])
+  eventdetails     eventdetails[]
+  volunteerdetails volunteerdetails[]
+}
+
+model eventdetails {
+  id                   Int               @id @default(autoincrement())
+  afterpic             String
+  beforepic            String
+  collectionid         Int
+  description          String
+  eventid              Int
+  fundsspent           Float
+  numberofparticipants Int
+  starteddate          DateTime
+  totaltime            Int
+  cleanupevent         cleanupevent      @relation(fields: [eventid], references: [id])
+  wastecollection      wastecollection[]
+}
+
+model industrialwaste {
+  id                 Int             @id @default(autoincrement())
+  medicalwasteweight Int
+  metalweight        Int
+  otherweight        Int
+  plasticweight      Int
+  wastecollectionid  Int
+  wastecollection    wastecollection @relation(fields: [wastecollectionid], references: [id])
+}
+
+model island {
+  id                        Int            @id @default(autoincrement())
+  atoll                     String
+  name                      String
+  latitude                  Float
+  longitude                 Float
+  cleanupevent              cleanupevent[]
+  atoll_island_atollToatoll atoll          @relation("island_atollToatoll", fields: [atoll], references: [code])
+  location                  location[]
+}
+
+model location {
+  id                 Int            @id @default(autoincrement())
+  description        String?
+  islandid           Int
+  locationarealength Float
+  locationareawidth  Float
+  locationtype       String
+  totalarea          Float
+  cleanupevent       cleanupevent[]
+  island             island         @relation(fields: [islandid], references: [id])
+}
+
+model organisation {
+  id                 Int                @id @default(autoincrement())
+  name               String
+  organisationtype   organisationtype
+  registrationnumber String
+  cleanupevent       cleanupevent[]
+  user               user[]
+  volunteerdetails   volunteerdetails[]
+}
+
+model residentialwaste {
+  id                Int             @id @default(autoincrement())
+  aluminiumweight   Int
+  glassweight       Int
+  otherweight       Int
+  plasticweight     Int
+  wastecollectionid Int
+  wastecollection   wastecollection @relation(fields: [wastecollectionid], references: [id])
+}
+
+model user {
+  id             Int            @id @default(autoincrement())
+  email          String         @unique
+  number         String
+  password       String
+  firstname      String
+  lastname       String
+  organisationid Int
+  cleanupevent   cleanupevent[]
+  organisation   organisation   @relation(fields: [organisationid], references: [id])
+}
+
+model volunteerdetails {
+  id             Int          @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  age            Int
+  feedback       String
+  eventid        Int
+  organisationid Int
+  cleanupevent   cleanupevent @relation(fields: [eventid], references: [id])
+  organisation   organisation @relation(fields: [organisationid], references: [id])
+}
+
+model washedupwaste {
+  id                Int             @id @default(autoincrement())
+  otherweight       Int
+  plasticweight     Int
+  fishinggearweight Int
+  wastecollectionid Int
+  wastecollection   wastecollection @relation(fields: [wastecollectionid], references: [id])
+}
+
+model wastecollection {
+  id               Int                @id @default(autoincrement())
+  eventdetailid    Int
+  totalkg          Float
+  industrialwaste  industrialwaste[]
+  residentialwaste residentialwaste[]
+  washedupwaste    washedupwaste[]
+  eventdetails     eventdetails       @relation(fields: [eventdetailid], references: [id])
+}
+
+enum organisationtype {
+  NON_PROFIT
+  GOVERNMENT
+  PRIVATE
+  INDIVIDUAL
+}
