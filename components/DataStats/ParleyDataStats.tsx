@@ -162,7 +162,7 @@ const DataStatsThree: React.FC = () => {
               <h3 className="mb-4 text-title-lg font-bold text-black dark:text-white">
                 82
               </h3>
-              <p className="font-medium">Volunteers Participated</p>
+              <p className="font-medium">Volunteers</p>
               <span className="mt-2 flex items-center gap-2">
                 <span className="flex items-center gap-1 rounded-md bg-meta-3 p-1 text-xs font-medium text-white">
                   <svg
