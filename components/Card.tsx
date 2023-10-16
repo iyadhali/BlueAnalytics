@@ -4,7 +4,7 @@ interface CardDataStatsProps {
   title: string;
   total: string;
   rate: string;
-  vs: string
+  vs: string;
   levelUp?: boolean;
   levelDown?: boolean;
   children: ReactNode;
@@ -20,7 +20,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   children,
 }) => {
   return (
-    <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark overflow-hidden">
       <div className="flex h-11.5 w-20 items-center justify-center">
         {children}
       </div>
@@ -34,12 +34,11 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         </div>
       </div>
       <div className="mt-1 flex items-center justify-between">
-        <h1 className="text-sm font-medium">
-          {vs}
-        </h1>
+        <h1 className="text-sm font-medium">{vs}</h1>
         <span
-          className={`flex items-center gap-1 text-sm font-medium ${levelUp && 'text-meta-3'
-            } ${levelDown && 'text-meta-5'} `}
+          className={`flex items-center gap-1 text-sm font-medium ${
+            levelUp && 'text-meta-3'
+          } ${levelDown && 'text-meta-7'} `}
         >
           {rate}
 
@@ -60,7 +59,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           )}
           {levelDown && (
             <svg
-              className="fill-meta-5"
+              className="fill-meta-7"
               width="10"
               height="11"
               viewBox="0 0 10 11"
