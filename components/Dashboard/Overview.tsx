@@ -6,47 +6,72 @@ import Card from '../Card';
 import TextCard from '../TextCard';
 
 const Overview: React.FC = () => {
-  const title = 'Total waste collected';
+  const title = 'Total plastic collected';
   const unit = 'Kg';
 
   const card_data = {
     cardTitle: 'Cleaned up so far',
-    cardContent:
-      '254.64 Tonnes',
+    cardContent: '254.64 Tonnes',
   };
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <Card title="Total plastic collected" total={`234.3 ${unit}`} vs="vs previous month" rate="10.43%" levelUp>
-
+        <Card
+          title={title}
+          total={`1234.74 ${unit}`}
+          vs="change from previous month"
+          rate="10.43%"
+          levelUp
+        >
           <img
+            className="h-auto max-w rounded-lg object-fit h-9 max-w-fit"
             src="/images/org_logos/parley.png"
             alt="Parley Logo"
             width="200px"
             height="62"
           />
-
         </Card>
-        <Card title="Total Profit" total="$45,2K" vs="vs previous month" rate="4.35%" levelUp>
+        <Card
+          title={title}
+          total={`548.30 ${unit}`}
+          vs="change from previous month"
+          rate="4.35%"
+          levelUp
+        >
           <img
+            className="h-auto max-w rounded-lg object-fit h-8 max-w-fit"
             src="/images/org_logos/cora-cora-maldives.png"
-            alt="Coca Cola Logo"
+            alt="Cora Cora Maldives Logo"
             width="200px"
             height="62"
           ></img>
         </Card>
-        <Card title="Total Product" total="2.450" vs="previous month" rate="2.59%" levelUp>
+        <Card
+          title={title}
+          total={`424.20 ${unit}`}
+          vs="change from previous month"
+          rate="2.59%"
+          levelUp
+        >
           <img
+            className="h-auto max-w rounded-lg object-fill h-10 max-w-fit"
             src="/images/org_logos/euro_marketing.jpg"
             alt="Coca Cola Logo"
             width="200px"
             height="62"
           ></img>
         </Card>
-        <Card title="Total Users" total="3.456" vs="previous month" rate="0.95%" levelDown>
+        <Card
+          title={title}
+          total="322.45"
+          vs="change from previous month"
+          rate="2.95%"
+          levelDown
+        >
           <img
-            src="/images/org_logos/coca-cola-logo.svg"
-            alt="Coca Cola Logo"
+            className="h-auto rounded-lg object-fill h-14 max-w-fit"
+            src="/images/org_logos/save_the_beach.jpeg"
+            alt="Save the Beach Logo"
             width="200px"
             height="62"
           ></img>
