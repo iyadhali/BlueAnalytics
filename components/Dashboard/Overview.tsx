@@ -12,7 +12,7 @@ const Overview: React.FC = () => {
   const card_data = {
     cardTitle: 'Cleaned up so far',
     cardContent:
-      'Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona fringilla goes scelerisque Interdum et.',
+      '254.64 Tonnes',
   };
   return (
     <>
