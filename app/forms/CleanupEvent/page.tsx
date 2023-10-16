@@ -115,7 +115,7 @@ const FormLayout = () => {
                     </div>
                   </div>
                 </div>
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
+                <button className="flex w-full justify-center rounded bg-[#525af2] p-3 font-medium text-gray">
                   Submit
                 </button>
               </div>

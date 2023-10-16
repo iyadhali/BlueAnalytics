@@ -9,7 +9,7 @@ const Overview: React.FC = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5" >
         <Card title="Total plastic collected" total={`234.3 ${unit}`} vs="vs previous month" rate="10.43%" levelUp>
 
           <img
@@ -46,7 +46,7 @@ const Overview: React.FC = () => {
         </Card>
       </div>
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <TotalGraph />
+        <TotalGraph/>
       </div>
     </>
   );
