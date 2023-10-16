@@ -1,5 +1,5 @@
 "use client";
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
+import Breadcrumb from "@/components/breadcrumbs/page";
 import FormTabs from "@/components/Tabs/FormTabs";
 
 const FormLayout: React.FC = () => {
