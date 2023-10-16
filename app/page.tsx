@@ -1,4 +1,4 @@
-import App from "@/components/Dashboard/App";
+import Overview from "@/components/Dashboard/Overview";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <App />
+      <Overview />
     </>
   );
 }

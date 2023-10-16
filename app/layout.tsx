@@ -29,22 +29,25 @@ export default function RootLayout({
           {loading ? (
             <Loader />
           ) : (
-            <div className="flex h-screen overflow-hidden">
-              {/* <!-- ===== Sidebar Start ===== --> */}
-              { pathname !== "/" && <Sidebar
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-              />}
-              {/* <!-- ===== Sidebar End ===== --> */}
+            <div className="flex h-screen overflow-hidden relative"> {/* Add relative here */}
+
 
               {/* <!-- ===== Content Area Start ===== --> */}
-              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden z-10">
                 {/* <!-- ===== Header Start ===== --> */}
                 <Header
                   sidebarOpen={sidebarOpen}
                   setSidebarOpen={setSidebarOpen}
+                 
                 />
                 {/* <!-- ===== Header End ===== --> */}
+
+              {/* <!-- ===== Sidebar Start ===== --> */}
+              <Sidebar
+                sidebarOpen={sidebarOpen}
+                setSidebarOpen={setSidebarOpen}
+              />
+              {/* <!-- ===== Sidebar End ===== --> */}
 
                 {/* <!-- ===== Main Content Start ===== --> */}
                 <main>
