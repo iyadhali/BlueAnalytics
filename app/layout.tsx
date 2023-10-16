@@ -1,11 +1,11 @@
-"use client";
-import "./globals.css";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import Loader from "@/components/common/LoadSpinner";
+'use client';
+import './globals.css';
+import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import Loader from '@/components/common/LoadSpinner';
 
-import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
+import Sidebar from '@/components/Sidebar';
+import Header from '@/components/Header';
 
 export default function RootLayout({
   children,
@@ -29,25 +29,21 @@ export default function RootLayout({
           {loading ? (
             <Loader />
           ) : (
-            <div className="flex h-screen overflow-hidden relative"> {/* Add relative here */}
-
-
-              {/* <!-- ===== Content Area Start ===== --> */}
-              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden z-10">
-                {/* <!-- ===== Header Start ===== --> */}
-                <Header
-                  sidebarOpen={sidebarOpen}
-                  setSidebarOpen={setSidebarOpen}
-                 
-                />
-                {/* <!-- ===== Header End ===== --> */}
-
+            <div className="flex h-screen overflow-hidden relative">
               {/* <!-- ===== Sidebar Start ===== --> */}
               <Sidebar
                 sidebarOpen={sidebarOpen}
                 setSidebarOpen={setSidebarOpen}
               />
               {/* <!-- ===== Sidebar End ===== --> */}
+              {/* <!-- ===== Content Area Start ===== --> */}
+              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden z-10">
+                {/* <!-- ===== Header Start ===== --> */}
+                <Header
+                  sidebarOpen={sidebarOpen}
+                  setSidebarOpen={setSidebarOpen}
+                />
+                {/* <!-- ===== Header End ===== --> */}
 
                 {/* <!-- ===== Main Content Start ===== --> */}
                 <main>
