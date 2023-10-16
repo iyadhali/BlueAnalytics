@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/breadcrumbs/breadcrumb";
+import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
 export const metadata: Metadata = {
