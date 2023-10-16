@@ -1,8 +1,9 @@
 import Breadcrumb from "@/components/breadcrumbs/breadcrumb";
+import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Form Layout Page | Next.js completed event cleanup form",
-  description: "This is Form Layout page for TailAdmin Next.js for the form submission",
+  title: "Arrange an event form",
+  description: "Arrange an event form,",
   // other metadata
 };
 
