@@ -19,7 +19,8 @@
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
-    "react-jvectormap": "^0.0.16"
+    "react-jvectormap": "^0.0.16",
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

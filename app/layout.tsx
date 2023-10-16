@@ -1,28 +1,46 @@
 "use client";
 import "./globals.css";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import Loader from "@/components/common/LoadSpinner";
+import AuthProvider from "./context/Authcontext";
+import { useStore } from "./context/store";
+
+
+
 
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+
+interface AuthContextType {
+  isAuthenticated: boolean;
+  toggleAuth: () => void;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  
   const [sidebarOpen, setSidebarOpen] = useState(false);
+ 
 
   const [loading, setLoading] = useState<boolean>(true);
 
   const pathname = usePathname();
+
+  const isLogged = useStore((state) => state.isLogged);
+
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
+    <AuthProvider>
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
@@ -43,10 +61,12 @@ export default function RootLayout({
                 {/* <!-- ===== Header End ===== --> */}
 
               {/* <!-- ===== Sidebar Start ===== --> */}
-              <Sidebar
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-              />
+              {isLogged && (
+                <Sidebar
+                  sidebarOpen={sidebarOpen}
+                  setSidebarOpen={setSidebarOpen}
+                />
+              )}
               {/* <!-- ===== Sidebar End ===== --> */}
 
                 {/* <!-- ===== Main Content Start ===== --> */}
@@ -63,5 +83,6 @@ export default function RootLayout({
         </div>
       </body>
     </html>
+    </AuthProvider>
   );
 }
