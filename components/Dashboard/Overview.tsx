@@ -1,12 +1,19 @@
 'use client';
 import React from 'react';
 import TotalGraph from '../Charts/TotalGraph';
+import Category from '../Charts/Category';
 import Card from '../Card';
+import TextCard from '../TextCard';
 
 const Overview: React.FC = () => {
   const title = 'Total waste collected';
   const unit = 'Kg';
 
+  const card_data = {
+    cardTitle: 'Cleaned up so far',
+    cardContent:
+      'Lorem ipsum dolor sit amet, vehiculaum ero felis loreum fitiona fringilla goes scelerisque Interdum et.',
+  };
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
@@ -86,6 +93,12 @@ const Overview: React.FC = () => {
       </div>
       <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <TotalGraph />
+        <TextCard
+          key={1}
+          cardTitle={card_data.cardTitle}
+          cardContent={card_data.cardContent}
+        />
+        <Category />
       </div>
     </>
   );
