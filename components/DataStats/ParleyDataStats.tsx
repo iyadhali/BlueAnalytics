@@ -66,7 +66,7 @@ const DataStatsThree: React.FC = () => {
                   <span>+2.5%</span>
                 </span>
 
-                <span className="text-sm font-medium">Since last week</span>
+                <span className="text-sm font-medium">Since last month</span>
               </span>
             </div>
 
@@ -123,7 +123,7 @@ const DataStatsThree: React.FC = () => {
                   <span>+1.5%</span>
                 </span>
 
-                <span className="text-sm font-medium">Since last week</span>
+                <span className="text-sm font-medium">Since last month</span>
               </span>
             </div>
 
@@ -180,7 +180,7 @@ const DataStatsThree: React.FC = () => {
                   <span>+0.5%</span>
                 </span>
 
-                <span className="text-sm font-medium">Since last week</span>
+                <span className="text-sm font-medium">Since last month</span>
               </span>
             </div>
 

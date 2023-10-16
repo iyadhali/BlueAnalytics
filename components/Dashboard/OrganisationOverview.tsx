@@ -18,6 +18,10 @@ const OrganisationOverview: React.FC = () => {
           <ChartSeven />
         </div>
 
+        <div className="col-span-12 xl:col-span-5">
+          <ChartEight />
+        </div>
+
 
       </div>
     </>
